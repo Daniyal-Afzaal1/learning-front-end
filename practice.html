@@ -1,0 +1,220 @@
+<!-- Normal Example of selectors & how it works -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning CSS</title>
+    <style>
+        div,span {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Hello, Daniyal Afzaal here
+        </p>
+    </div>
+    <div>
+        feeling good
+    </div>
+    <span>
+        I am also good
+    </span>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores quis aperiam beatae quae ipsum impedit? Tempore, error iure. Velit, nesciunt est. Porro maiores eos, assumenda totam impedit tenetur placeat nobis.
+    </p>
+</body>
+</html> -->
+
+<!-- Inline,Internal, and External CSS -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: red;
+            color: yellow;
+        }
+    </style> intenal css, dont have to do with each element
+    <link rel="stylesheet" href="style.css"> 
+    External CSS: we write css in a different file
+</head>
+<body>
+    <h1 style="color: yellow; background-color: red;">Three ways to add CSS to HTML</h1>
+    <h1>Three ways to add CSS to HTML</h1>
+    <div>
+        <ol>
+            <li>Inline CSS</li>
+            <li>Internal CSS</li>
+            <li>External CSS</li>
+        </ol>
+    </div>
+    <p>i love to learn new things</p>
+</body>
+</html> -->
+
+<!-- CSS SELECTORS-->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS selectors</title>
+    <style>
+        /* Elment Selector */
+        /* div {
+            background-color: red;
+        } */
+
+        /* Class Selector */
+        .red {
+            background-color: red;
+        }
+
+        /* Id selectors */
+        #green {
+            background-color: green;
+        }
+
+        /* Child Selectors */
+        div>p {
+            color: blue;
+            background-color: brown;
+        }
+
+        /* Descendant Selector */
+        div p {
+            color: blue;
+            background-color: brown;
+        }
+
+        /* Universal Selector */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pseudo Selectors */
+        a:visited{
+            color: yellow;
+        }
+
+        a:link {
+            color: green;
+        }
+        a:active{
+            background-color: red;
+        }
+        a:hover{
+            background-color: yellow;
+        }
+        p:first-child{
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main class="one">
+        <p>Iam first</p>
+        <p>Iam second</p>
+    </main>
+    <div id="green">
+        Iam a div
+        <article>
+            <p>Iam a para inside the div</p>
+        </article>
+    </div>
+
+    <div class="red">
+        Iam another div
+    </div>
+    <a href="https://www.google.com" target="_blank">Visit google</a>
+    <a href="https://www.facebook.com">Visit Facebook</a>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector Practice</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+
+        <nav>
+            <a href="https://google.com">Google</a>
+            <a href="https://github.com">GitHub</a>
+            <a href="https://example.com">Example</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="intro">
+            <h2>About Me</h2>
+            <p>I am learning frontend development.</p>
+            <p>I already know backend development.</p>
+        </section>
+
+        <section id="projects">
+
+            <h2>My Projects</h2>
+
+            <div class="project">
+                <h3>VideoTube</h3>
+                <p>Backend project using Node.js and Express.</p>
+
+                <article>
+                    <p>Built using MongoDB and Mongoose.</p>
+                </article>
+            </div>
+
+            <div class="project">
+                <h3>Auto File Organizer</h3>
+                <p>A C++ application for organizing files.</p>
+            </div>
+
+        </section>
+
+        <section class="skills">
+
+            <h2>Skills</h2>
+
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Copyright 2026</p>
+    </footer>
+
+</body>
+</html>
