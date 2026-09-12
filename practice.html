@@ -147,7 +147,9 @@
 
 </html> -->
 
-<!DOCTYPE html>
+<!-- CSS SELECTORS PRACTICE -->
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -217,4 +219,292 @@
     </footer>
 
 </body>
+</html> -->
+
+<!-- CSS BOXMODEL- MARGIN,PADDING & BORDERS -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS BOX MODEL</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            background-color: aqua;
+        }
+        .box1{
+            color:blue;
+            padding: 10px;
+            margin: 35px; /*margin collapse:only greter margin applies b/w two boxes*/
+            border: 2px solid blue;
+            height: 200px;
+            box-sizing: border-box;
+        }
+        .box2{
+            color:blueviolet;
+            padding: 10px;
+            margin: 25px;
+            border: 2px solid black;
+            height: 200px;
+            box-sizing: border-box; /*till border 200px*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        Iam a box
+    </div>
+    <div class="box box2">
+        Iam another box
+    </div>
+</body>
+</html>
+ -->
+
+<!-- CSS FONTS - TEXT & COLOR PROPERTIES -->
+
+<!-- All about text -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fonts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caacupe+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        h1 {
+            font-family: "Poppins", sans-serif;
+            letter-spacing: 2px;
+        }
+
+        p {
+            /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+            font-family: "Caacupe One", sans-serif;
+            font-size: 20px;
+            line-height: 1;
+            /* font-style: italic;
+            font-weight:500;
+            text-decoration: underline; */
+        } 
+        h2{
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-color: blue;
+            /* text-decoration-style: dotted; */
+            text-decoration-thickness: 4px ;
+            /* text-indent: 20px; */
+        }
+        .lorem{
+            border: 2px solid red;
+            width: 145px;
+            word-break: break-all;
+            /* text-overflow: ellipsis; 
+            overflow: hidden; */
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h1>Fonts</h1>
+        <h2>About Fonts</h2>
+        <p>This is a video on fonts</p>
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora soluta? Rem enim facere maxime ad veniam est, at officia quidem! Ut animi iure voluptatibus sit quam, consequatur, magni beatae sint, atque aut temporibus reprehenderit quidem obcaecati dicta alias at non minima? Sequi, cum officiis!
+        </p>
+    </div>
+</body>
+
+</html> -->
+
+<!-- subsection: COLORS -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+    <style>
+        h1{
+            /* color: darkred; */
+            /* color: #A7D046; */
+            /* color: rgb(38, 211, 196); */
+            /* color: rgba(223, 60, 48, 0.856) ; */
+            color: hsl(235, 83%, 32%);
+            background-color: rgb(87, 187, 187);
+        }
+    </style>
+</head>
+<body>
+    <h1>Let's learn about colors</h1>
+    <p>Colors can be represented in: </p>
+    <ol>
+        <li>Color keywords</li>
+        <li>Hex Color Code</li>
+        <li>RGB</li>
+        <li>RGBA</li>
+        <li>HSL</li>
+    </ol>
+</body>
+</html> -->
+
+<!-- CSS SPECIFICTY AND CASCADE -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity </title>
+    <style>
+        h1{
+            color: aqua;
+        }
+        .yellow{
+            color: yellow;
+        }
+        .cred{
+        color: red;
+        }
+        .cpurple{
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="yellow cred cpurple">
+            CSS Specificity
+        </h1>
+    </div>
+    
+</body>
+</html> -->
+
+<!-- Sizing Units -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizing Units</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{ /*root*/
+            font-size: 12px;
+        }
+        .box{
+            box-sizing: border-box;
+            border: 2px solid black;
+            /* width: 1920px; */
+            width: 80vw;
+            height: 10vh;
+            margin:auto; /*centers a div only for block elements*/
+            background-color: aquamarine;
+        }
+        .container{
+            box-sizing: border-box;
+            border: 2px solid black;
+            /* width: 1920px; */
+            width: 80vw;
+            margin: 23px auto; /*23px:width from top and bottom, auto: width form left to right*/
+            /* height: 80vh; it takes 80% of the viewpoort height */
+            min-height: 80vh; /*min height is 80 vh but if more content comes it adjusts*/
+            font-size: 18px;
+            background-color: aquamarine;
+        }
+        .container > div{
+            font-size: 2rem; /*em:it doubles the font size we actually have like 18*2 is 36px
+            rem: doubles the size of the root tag*/   
+            width: 50%; /*percentage means the width of the parent so it will take 50 percent of div or box*/
+            border: 2px solid red;
+        }
+        .container > div > div{
+            border: 2px solid blue;
+            width: 50%;
+        }
+        .mycont{
+            box-sizing: border-box;
+            border: 2px solid black;
+            margin: 23px auto;
+            color:yellow;
+            font-size: 22px;
+            width: 80vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        Iam a box
+    </div>
+
+    <div class="container">
+        <div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis iste facilis non minima dolorem fugiat dolore sit libero dolor placeat. Sint veniam hic pariatur. Nulla, error impedit temporibus incidunt libero maiores soluta mollitia iusto quidem dolore voluptas corrupti omnis, illum eos quas. Sunt, voluptatum commodi?
+
+            <div>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis commodi doloremque voluptate nesciunt deleniti porro? Dicta, nesciunt? Nesciunt doloribus dicta recusandae repellendus quia.
+            </div>
+        </div>
+     Expand to see that this container will adjust its heightLorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, quae in nisi minima ex architecto veniam magnam nulla quo ullam illum doloremque dignissimos ad quia maiores libero modi nostrum sint? Dicta ratione eum nihil sit unde cupiditate, sequi voluptas quos quae? Laborum eligendi sapiente explicabo soluta quis voluptates inventore fuga ab, similique autem hic ipsa pariatur atque vero beatae earum totam, esse aliquid aliquam amet ipsam quae! Ut ratione quaerat quidem fuga magni vel exercitationem sint quo minus porro dolorem id, expedita doloribus, a omnis ab. Veniam mollitia modi consequatur tenetur ea atque minima possimus aliquid totam. Cum non error, sequi quo incidunt deserunt temporibus accusantium dolorum aspernatur itaque aliquid quos odio eligendi quibusdam dolore, alias quam. Magni quam maiores totam sint ea quaerat odit quod iste architecto, consequuntur rem at vero repellat rerum, sequi nulla saepe! Veniam nesciunt iusto suscipit rem eaque ducimus eum aperiam necessitatibus dolores aut? Non veniam error culpa deleniti! Ratione architecto esse deleniti amet quae, necessitatibus cupiditate ipsam maiores cumque unde sunt asperiores atque eos! Necessitatibus harum enim sequi optio amet possimus fuga aliquid odio, saepe dolor suscipit repellendus accusamus pariatur tenetur nihil quam nesciunt inventore asperiores? Repellat assumenda voluptas, quod numquam laudantium aliquid accusantium illo facere explicabo itaque non voluptatibus esse maiores dolores sit dignissimos consequatur repellendus delectus molestiae id exercitationem vitae. Earum, numquam! In, architecto ab? Maiores, at quod. Eius est optio dignissimos, asperiores commodi distinctio molestiae accusantium sed doloribus, ipsam veniam nulla architecto nam fugit at et numquam labore exercitationem? Necessitatibus dolor, atque distinctio reiciendis vel illo beatae, reprehenderit voluptate et magni architecto dolorem error nemo nobis, facilis debitis ullam ea? Porro, perspiciatis accusamus minima quam iusto soluta aperiam? Voluptas sint culpa delectus qui nemo perspiciatis nostrum magnam optio quis dolores at tempora, tenetur nesciunt. Harum earum autem atque nobis debitis aperiam illo est tenetur mollitia dolorem labore distinctio sapiente, quis recusandae aspernatur officia officiis. Inventore quo asperiores dolorem eius? Reiciendis rem, obcaecati ducimus ipsa tempora alias, est fuga incidunt eligendi delectus enim. Ab, facere? Doloremque suscipit sint a voluptatem repellendus maiores tempora illo, mollitia officia quia quae. Alias repudiandae, illo odio enim animi asperiores, nostrum temporibus iusto, vitae perferendis quia non error explicabo. Tenetur ratione dolore totam ut necessitatibus consequatur nostrum, praesentium iste sed voluptatibus eaque non! Similique, maiores ratione dolor eos rem placeat illum nisi repellat repudiandae animi explicabo eligendi. Ex, facere. Accusantium incidunt porro fugit nemo aut ex maxime velit asperiores cum, quibusdam autem, debitis fugiat? Ipsum iure fugit nisi quo quae est officia optio ducimus nesciunt atque eos facere, aliquid modi, alias earum labore repudiandae? Tenetur modi tempore soluta obcaecati, perspiciatis commodi iusto natus labore voluptatem laborum? Suscipit, consectetur! Alias cupiditate similique labore nesciunt in ipsa temporibus voluptas qui inventore? Sed, consequuntur porro facilis similique aut, numquam, quo harum mollitia nisi id ipsum quibusdam suscipit fugit delectus. Consectetur fugiat quis iure exercitationem voluptatum, perferendis fugit dolorem a quae tenetur? Dolorem, animi voluptas ut eaque laboriosam eligendi, rem itaque quasi inventore soluta, eum quaerat mollitia quis! Iste in doloremque ex vero aut est commodi aspernatur ad facilis praesentium? Quibusdam vero, cupiditate ullam libero quos quo, nobis laudantium deleniti ipsam veniam veritatis non blanditiis corrupti dolorum odit nemo minima dolor placeat ipsa voluptas sed maxime? Ratione dolore earum est at? Error sed repellat soluta officia, quo molestiae! Dignissimos tenetur quos deleniti totam quo sunt perspiciatis facere corrupti odio molestiae. Laborum commodi molestias obcaecati esse ipsa quo voluptas repudiandae inventore alias voluptate, optio rerum eum est dolorem? Ratione officiis neque magni at ad molestias natus rem id vel eaque ipsam distinctio ex, reiciendis accusamus tenetur quae sint sequi labore harum facere. Recusandae nihil laboriosam sint dolores facilis voluptatum pariatur iste architecto repellat est deserunt quaerat ratione nemo obcaecati, rem necessitatibus eius facere maiores corporis qui laborum consequatur! Ut quam error, minima obcaecati reprehenderit consectetur deleniti voluptatem consequatur cumque. Veritatis enim velit minus eius alias tempora nobis, quibusdam omnis similique eveniet commodi minima ea dolorum dolore ullam aut molestiae fuga hic modi explicabo? Repellat possimus perferendis blanditiis maiores facere harum amet molestias, repudiandae corrupti, quibusdam nemo voluptas distinctio labore exercitationem, temporibus voluptatum. Minima veniam, nesciunt a eligendi aspernatur similique, consectetur ipsam itaque nostrum, corrupti quidem? Quos, praesentium commodi, velit voluptas est iste unde, mollitia ipsam vitae suscipit odio delectus aut repellendus modi. Unde, ut quas obcaecati sint excepturi exercitationem nobis rerum officiis consequuntur alias veritatis ipsam omnis nostrum dignissimos sequi saepe fugit doloribus earum? Repudiandae incidunt deserunt voluptates ipsa sed atque voluptas architecto tempora minus nihil animi ab voluptatum iste quasi similique soluta earum quae aliquam eum dicta esse, eaque nemo? Quia modi vitae beatae, fugiat perferendis incidunt distinctio enim asperiores exercitationem aspernatur odio vel provident dolor in sit. Rerum, quibusdam alias nesciunt reprehenderit ducimus nemo iste amet distinctio. Unde in dolor id soluta accusantium minima ex explicabo nobis deleniti. Eligendi error impedit reiciendis accusantium aliquam quaerat tenetur sunt eveniet cupiditate nesciunt omnis officia quo explicabo ut eum neque unde eaque, fugit ipsa iusto quisquam nisi. Consectetur excepturi nostrum minima veritatis animi, molestias quo libero. Fugiat vero minus ut, ad blanditiis animi? Excepturi eum cum dignissimos consectetur. Cupiditate, consequuntur, repellendus ipsa reprehenderit cum aliquid omnis, libero minus sunt nesciunt voluptate excepturi quasi consectetur debitis eveniet deleniti dicta quos porro delectus a rerum vero distinctio autem. Unde facilis fugit inventore dolores itaque optio non beatae accusantium qui blanditiis tenetur fugiat doloribus, debitis porro quibusdam tempora nostrum nulla, perspiciatis, veritatis provident laborum. Velit quas dicta explicabo reiciendis provident eligendi sint, modi quam sequi facilis nisi tempora nostrum animi eaque officia amet. Eos, numquam vero! Magni, animi quasi. Voluptate, ratione! Dolorem, incidunt esse labore recusandae corporis quisquam dolor earum maiores dolore delectus tempore velit laudantium atque blanditiis quia ut sunt consequatur nihil dicta aliquam quae sequi natus doloremque. Laborum nostrum vel ex placeat rem asperiores a quas recusandae id, porro sequi architecto inventore perferendis amet facilis vitae quisquam, eligendi quam dolores quis similique. Itaque repudiandae consequuntur tempora veniam facere unde molestiae quas at vitae voluptas ab sapiente, explicabo obcaecati quidem nihil aliquid assumenda ipsa? 
+    </div>
+    <div class="mycont">
+        Iam another container
+    </div>
+</body>
+</html> 
+-->
+
+<!-- Display Property in css -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            border: 2px solid blue;
+            display: inline-block;
+            width: 344px;
+            padding: 30px;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        Iam a box
+    </div>
+    <div class="box">
+        Iam also a nice box
+    </div>
+    <span>
+        Iam a good
+    </span>
+    <span>boy</span>
+</body>
+
 </html>
