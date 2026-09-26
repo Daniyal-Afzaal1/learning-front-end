@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #previewBtn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #previewBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #clearBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        #clearBtn:hover {
+            background-color: #5a6268;
+        }
+
+        .Profile-card {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #bce8f1;
+            background-color: #d1ecf1;
+            color: #0c5460;
+            display: none;
+        }
+
+        .Profile-card h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #bee5eb;
+            padding-bottom: 8px;
+        }
+
+        .Profile-card p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Student Registration Form</h2>
+
+        <form id="regForm">
+
+            <div class="input-group">
+                <label for="username">Student Name:</label>
+                <input type="text" id="username" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" placeholder="Enter your ID" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" placeholder="Enter your Email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="Department">Department:</label>
+
+                <select name="Department" id="Department" required>
+                    <option value="">---Select Department---</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="Semester">Semester:</label>
+                <input type="number" id="Semester" placeholder="Enter your Semester" required>
+            </div>
+
+            <div class="input-group">
+                <label>Gender:</label>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="Male">
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="btn-container">
+
+                <button type="button" id="previewBtn" onclick="generatePreview()">
+                    Generate Preview
+                </button>
+
+                <button type="button" id="clearBtn" onclick="clearForm()">
+                    Clear Form
+                </button>
+
+            </div>
+
+            <div class="Profile-card" id="profileCard">
+
+                <h3>Student Registration Preview:</h3>
+
+                <p>
+                    <strong>Student Name:</strong>
+                    <span id="prev-name"></span>
+                </p>
+
+                <p>
+                    <strong>Student ID:</strong>
+                    <span id="prev-id"></span>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <span id="prev-email"></span>
+                </p>
+
+                <p>
+                    <strong>Department:</strong>
+                    <span id="prev-department"></span>
+                </p>
+
+                <p>
+                    <strong>Semester:</strong>
+                    <span id="prev-semester"></span>
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    <span id="prev-gender"></span>
+                </p>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        function generatePreview() {
+
+            const name = document.getElementById("username").value;
+            const id = document.getElementById("student-id").value;
+            const email = document.getElementById("Email").value;
+            const department = document.getElementById("Department").value;
+            const semester = document.getElementById("Semester").value;
+
+            const gender = document.querySelector(
+                'input[name="gender"]:checked'
+            )?.value;
+
+            // Validation
+            if (name === "" || id === "") {
+                alert("Student Name and Student ID are required.");
+                return;
+            }
+
+            // Display values
+            document.getElementById("prev-name").textContent = name;
+            document.getElementById("prev-id").textContent = id;
+            document.getElementById("prev-email").textContent = email;
+            document.getElementById("prev-department").textContent = department;
+            document.getElementById("prev-semester").textContent = semester;
+            document.getElementById("prev-gender").textContent = gender || "N/A";
+
+            // Show profile card
+            const profileCard = document.getElementById("profileCard");
+
+            profileCard.style.display = "block";
+        }
+
+
+        function clearForm() {
+
+            document.getElementById("regForm").reset();
+
+            document.getElementById("profileCard").style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>
+
