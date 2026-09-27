@@ -856,44 +856,285 @@
 
 //CUSTOM HOOKS
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function useCounter(){
-  const [count, setCount] = useState(0);
+// function useCounter(){
+//   const [count, setCount] = useState(0);
 
-  function increment(){
-    setCount(count+1)
-  }
+//   function increment(){
+//     setCount(count+1)
+//   }
 
-  function decrement(){
-    setCount(count-1)
-  }
+//   function decrement(){
+//     setCount(count-1)
+//   }
 
-  return (
-    {
-      count,
-      increment,
-      decrement
-    }
-  )
-}
+//   return (
+//     {
+//       count,
+//       increment,
+//       decrement
+//     }
+//   )
+// }
+
+// function App(){
+//   const {count, increment, decrement} = useCounter();
+
+//   return (
+//     <div>
+//       <h1>Count: {count}</h1>
+
+//       <button onClick={increment}>
+//         +
+//       </button>
+
+//       <button onClick={decrement}>
+//         -
+//       </button>
+//     </div>
+//   )
+// }
+
+//child-parent communication
+
+// import { useState } from "react";
+
+// function Student({ name, handleSelect }) {
+//     function handleClick() {
+//         handleSelect(name);
+//     }
+
+//     return (
+//         <div>
+//             <h1>
+//                 {name}
+//                 <button onClick={handleClick}>Select</button>
+//             </h1>
+//         </div>
+//     )
+// }
+
+// function App() {
+//     const [selectedStudent, setSelectedStudent] = useState("");
+
+//     function handleSelect(Student) {
+//         setSelectedStudent(Student)
+//     }
+
+//     return (
+//         <div>
+//             <Student name="Ali" handleSelect={handleSelect} />
+//             <Student name="Ahmed" handleSelect={handleSelect} />
+//             <Student name="Sara" handleSelect={handleSelect} />
+
+//             {
+//                 selectedStudent && <p>Selected student: {selectedStudent}</p>
+//             }
+//         </div>
+//     )
+// }
+
+//lifting state
+
+// import { useState } from "react";
+
+// function Product({quantity,setQuantity}){
+//     return (
+//         <div>
+//             <button onClick={() => setQuantity(quantity+1)}>Add to Cart</button>
+//         </div>
+//     )
+// }
+
+// function Cart({quantity}){
+//     return (
+//         <h2>Itmes in cart: {quantity}</h2>
+//     )
+// }
+
+// function App(){
+//     const [quantity,setQuantity] = useState(0);
+
+//     return (
+//         <div>
+//             <Product quantity = {quantity} setQuantity = {setQuantity}/>
+//             <Cart quantity = {quantity}/>
+//         </div>
+//     )
+// }
+
+//Controlled Components
+
+// import { useState } from "react";
+
+// function App(){
+//     const [username, setUsername] = useState("");
+
+//     return (
+//         <div>
+//             <label>Username: </label>
+//             <input value={username} onChange={(event) => setUsername(event.target.value)} />
+
+//             {username && <p>Hello, {username}</p>}
+//         </div>
+//     )
+// }
+
+//Forms
+
+// import { useState } from "react";
+
+// function App() {
+//     const [username, setUsername] = useState("");
+//     const [password, setPassword] = useState("");
+
+//     function handleSubmit(event) {
+//         event.preventDefault();
+
+//         console.log("username: ", username);
+//         console.log("Password: ", password);
+//     }
+
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit}>
+//                 <div>
+//                     <label>
+//                         Username: 
+//                         <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+//                     </label>
+//                 </div>
+
+//                 <div>
+//                     <label>
+//                         Password: 
+//                         <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+//                     </label>
+//                 </div>
+
+//                 <button type="submit">
+//                     Login
+//                 </button>
+//             </form>
+//         </div>
+//     )
+// }
+
+//Loading States
+
+// import { useEffect, useState } from "react";
+
+// function App(){
+//     const [products, setProducts] = useState("");
+//     const [loading, setLoading] = useState(true);
+
+//     useEffect(() => {
+//         fetch("https://fakestoreapi.com/products")
+//         .then(response => response.json())
+//         .then(
+//             data => {
+//                 setProducts(data);
+//                 setLoading(false);
+//             }
+//         )
+//     },[]);
+
+//     return (
+//         <div>
+//             <h1>
+//                 Products
+//             </h1>
+//             {loading ? (
+//                 <p>Loading...</p>
+//             ) : (
+//                 products.map(product => (
+//                     <p key={product.id}>
+//                         {product.title}
+//                     </p>
+//                 ))
+//             )}
+//         </div>
+//     )
+// }
+
+// import { useState, useEffect } from "react";
+
+// function App(){
+//     const [loading, setLoading] = useState(true);
+
+//     useEffect(() =>{
+//         setTimeout(() =>{
+//             setLoading(false)
+//         },2000)
+//     },[])
+
+//     return (
+//         <div>
+//             {
+//                 loading ? (
+//                     <p>Loading...</p>
+//                 ) : (
+//                     <p>Data Loaded!</p>
+//                 )
+//             }
+//         </div>
+//     )
+// }
+
+//Error States
+
+import { useState, useEffect } from "react";
 
 function App(){
-  const {count, increment, decrement} = useCounter();
+    const [products, setProducts] = useStates([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
-  return (
-    <div>
-      <h1>Count: {count}</h1>
+    useEffect(() => {
+        fetch("https://fakestoreapi.com/products")
+        .then(
+            response => {
+                if(!response.ok){
+                    throw new Error("Failed to fetch products");
+                }
 
-      <button onClick={increment}>
-        +
-      </button>
+                return response.json();
+            }
+        )
+        .then(
+            data => {
+                setProducts(data);
+                setLoading(false);
+            }
+        )
+        .catch(
+            error => {
+                setError(error.message);
+                setLoading(false);
+            }
+        )
+    },[])
 
-      <button onClick={decrement}>
-        -
-      </button>
-    </div>
-  )
+    return (
+        <div>
+            <h1>Products</h1>
+
+            {loading ? (
+                <p>Loading...</p>
+            ) : error ? (
+                <p>{error}</p>
+            ) : (
+                products.map(
+                    product => (
+                        <p key={product.id}>
+                            {product.title}
+                        </p>
+                    )
+                )
+            )}
+        </div>
+    )
 }
 
 export default App;
