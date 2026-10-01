@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams, useLocation, Outlet } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams, useLocation, Outlet, Navigate } from "react-router-dom"
 
 // function Home() {
 //   return <h1>Home Page</h1>
@@ -292,66 +292,340 @@ import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams, us
 //   );
 // }
 
+//Nested Routes + Outlet
+
+// function Home() {
+//     return <h1>Home Page</h1>;
+// }
+
+// function Dashboard() {
+//     return (
+//         <div>
+//             <h1>Dashboard</h1>
+
+//             <nav>
+//                 <NavLink to="profile">Profile</NavLink>
+//                 {" | "}
+//                 <NavLink to="settings">Settings</NavLink>
+//             </nav>
+
+//             <Outlet />
+//         </div>
+//     );
+// }
+
+// function Profile() {
+//     return <h2>Profile Page</h2>;
+// }
+
+// function Settings() {
+//     return <h2>Settings Page</h2>;
+// }
+
+// function App() {
+//     return (
+//         <BrowserRouter>
+
+//             <nav>
+//                 <NavLink to="/">Home</NavLink>
+//                 {" | "}
+//                 <NavLink to="/dashboard">Dashboard</NavLink>
+//             </nav>
+
+//             <Routes>
+
+//                 <Route path="/" element={<Home />} />
+
+//                 <Route path="/dashboard" element={<Dashboard />}>
+
+//                     <Route
+//                         path="profile"
+//                         element={<Profile />}
+//                     />
+
+//                     <Route
+//                         path="settings"
+//                         element={<Settings />}
+//                     />
+
+//                 </Route>
+
+//             </Routes>
+
+//         </BrowserRouter>
+//     );
+// }
+
+//Dynamic Routes
+
+// const products = [
+//     {
+//         id: 101,
+//         name: "Laptop",
+//         price: 1000
+//     },
+//     {
+//         id: 102,
+//         name: "Phone",
+//         price: 500
+//     },
+//     {
+//         id: 1000,
+//         name: "Keyboard",
+//         price: 100
+//     }
+// ];
+
+// function Home() {
+//     return <h1>Home Page</h1>
+// }
+
+// function Products() {
+//     return (
+//         <div>
+//             <h1>Products</h1>
+
+//             {
+//                 products.map(product => (
+//                     <div key={product.id}>
+//                         <h2>{product.name}</h2>
+
+//                         <p>Price: ${product.name}</p>
+
+//                         <NavLink to={`/products/${product.id}`}>
+//                             View Product
+//                         </NavLink>
+//                     </div>
+//                 ))
+//             }
+//         </div>
+//     )
+// }
+
+// function ProductsDetails() {
+//     const { id } = useParams();
+
+//     return (
+//         <div>
+//             <h1>Product Details</h1>
+
+//             <p>Product ID: {id}</p>
+//         </div>
+//     )
+// }
+
+// function App() {
+//     return (
+//         <BrowserRouter>
+//         <nav>
+//             <NavLink to="/">Home</NavLink>
+//             {"|"}
+//             <NavLink to="/products">Products</NavLink>
+//         </nav>
+
+//         <Routes>
+//             <Route path="/" element = {<Home/>}/>
+//             <Route path="/products" element = {<Products/>}/>
+//             <Route path="/products/:id" element = {<ProductsDetails/>}/>
+//         </Routes>
+
+//         </BrowserRouter>
+//     )
+
+// }
+
+// function Home() {
+//     return (
+//         <div>
+//             <h1>
+//                 Home Page
+//             </h1>
+//         </div>
+//     )
+// }
+// const products = [
+//     { id: 1, name: "Laptop", price: 1000 },
+//     { id: 2, name: "Phone", price: 500 },
+//     { id: 3, name: "Mouse", price: 50 }
+// ];
+
+// function Products() {
+//     return (
+//         <div>
+//             {
+//                 products.map(product => (
+//                 <div>
+//                     <h2>{product.name}</h2>
+//                     <p>Price: ${product.price}</p>
+//                     <NavLink to={`/products/${product.id}`}>
+//                         View Details
+//                     </NavLink>
+//                 </div>
+//             ))
+//             }
+//         </div>
+//     )
+// }
+
+// function ProductsDetails() {
+//     const { id } = useParams();
+//     return (
+//         <div>
+//             <h2>Products Details</h2>
+//             <p>Product ID: {id}</p>
+//         </div>
+//     )
+// }
+
+// function App() {
+//     return (
+//         <BrowserRouter>
+//             <nav>
+//                 <NavLink to="/">
+//                     Home
+//                 </NavLink>
+//                 {"|"}
+//                 <NavLink to="/products">
+//                     Products
+//                 </NavLink>
+//             </nav>
+
+//             <Routes>
+//                 <Route path="/" element={<Home/>}/>
+//                 <Route path="/products" element = {<Products/>}/>
+//                 <Route path="/products/:id" element = {<ProductsDetails/>}/>
+//             </Routes>
+//         </BrowserRouter>
+//     )
+// }
+
+//404 Routes
+
+// function Home() {
+//     return <h1>Home Page</h1>;
+// }
+
+// function Products() {
+//     return <h1>Products Page</h1>;
+// }
+
+// function About() {
+//     return <h1>About Page</h1>;
+// }
+
+// function NotFound() {
+//     return (
+//         <div>
+//             <h1>404</h1>
+//             <h2>Page Not Found</h2>
+
+//             <NavLink to="/">
+//                 Go Home
+//             </NavLink>
+//         </div>
+//     );
+// }
+
+// function App() {
+//     return (
+//         <BrowserRouter>
+
+//             <nav>
+//                 <NavLink to="/">Home</NavLink>
+//                 {" | "}
+//                 <NavLink to="/products">Products</NavLink>
+//                 {" | "}
+//                 <NavLink to="/about">About</NavLink>
+//             </nav>
+
+//             <Routes>
+
+//                 <Route path="/" element={<Home />} />
+
+//                 <Route
+//                     path="/products"
+//                     element={<Products />}
+//                 />
+
+//                 <Route
+//                     path="/about"
+//                     element={<About />}
+//                 />
+
+//                 <Route
+//                     path="*"
+//                     element={<NotFound />}
+//                 />
+
+//             </Routes>
+
+//         </BrowserRouter>
+//     );
+// }
+
 function Home() {
     return <h1>Home Page</h1>;
 }
 
+function Login() {
+    return <h1>Login Page</h1>;
+}
+
 function Dashboard() {
-    return (
-        <div>
-            <h1>Dashboard</h1>
-
-            <nav>
-                <NavLink to="profile">Profile</NavLink>
-                {" | "}
-                <NavLink to="settings">Settings</NavLink>
-            </nav>
-
-            <Outlet />
-        </div>
-    );
+    return <h1>Dashboard Page</h1>;
 }
 
-function Profile() {
-    return <h2>Profile Page</h2>;
-}
+function ProtectedRoute({ isLoggedIn, children }) {
 
-function Settings() {
-    return <h2>Settings Page</h2>;
+    if (!isLoggedIn) {
+        return <Navigate to="/login" />;
+    }
+
+    return children;
 }
 
 function App() {
+
+    const isLoggedIn = false;
+
     return (
         <BrowserRouter>
 
             <nav>
                 <NavLink to="/">Home</NavLink>
                 {" | "}
+                <NavLink to="/login">Login</NavLink>
+                {" | "}
                 <NavLink to="/dashboard">Dashboard</NavLink>
             </nav>
 
             <Routes>
 
-                <Route path="/" element={<Home />} />
+                <Route
+                    path="/"
+                    element={<Home />}
+                />
 
-                <Route path="/dashboard" element={<Dashboard />}>
+                <Route
+                    path="/login"
+                    element={<Login />}
+                />
 
-                    <Route
-                        path="profile"
-                        element={<Profile />}
-                    />
-
-                    <Route
-                        path="settings"
-                        element={<Settings />}
-                    />
-
-                </Route>
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
 
             </Routes>
 
         </BrowserRouter>
     );
 }
+
+
 
 export default App;
